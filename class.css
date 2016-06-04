@@ -5,15 +5,48 @@
   background-color: #ccc;
   width: 600px;
   height: 400px;
+  border: solid 5px #333;
+}
+#panel {
+  display: block;
+  margin: auto;
+  margin-top: 30px;
+  background-color: #ccc;
+  width: 500px;
+  height: 50px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.button {
+  display: inline-block;
+  width: 60px;
+  height: 40px;
+  background-color: #abc;
+  border-radius: 5px;
+  text-align: center;
+  box-sizing: border-box;
+  font-size: 20px;
+  line-height: 40px;
+  color: #fff;
 }
 .container {
   grid-template-columns: 50px 1fr 50% 1fr;
   grid-template-rows: 50px 60% 20px auto;
   grid-gap: 5px;
   grid-template-areas: "a a a a"
-                       "b b . ."
-                       ". c c ."
+                       "b c c e"
+                       "b c c e"
                        "d d d d"
+}
+#main-container.order1 {
+  grid-template-areas: "b a a e"
+                       "b c c e"
+                       "b d d e"
+                       "b d d e"
+}
+
+.item {
+  transition: width 1s, height 1s;
 }
 .item-1 {
   background-color: yellow;
@@ -30,4 +63,8 @@
 .item-4 {
   background-color: blue;
   grid-area: d;
+}
+.item-5 {
+  background-color: orange;
+  grid-area: e;
 }
