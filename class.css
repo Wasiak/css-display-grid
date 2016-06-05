@@ -44,6 +44,12 @@
                        "b d d e"
                        "b d d e"
 }
+#main-container.order2 {
+  grid-template-areas: "e a a ."
+                       "c c c c"
+                       "b . d d"
+                       "b . d d"
+}
 
 .item {
   transition: width 1s, height 1s;
