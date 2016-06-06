@@ -54,6 +54,7 @@
 .item {
   transition: width 1s, height 1s;
 }
+
 .item-1 {
   background-color: yellow;
   grid-area: a;
@@ -73,4 +74,35 @@
 .item-5 {
   background-color: orange;
   grid-area: e;
+}
+
+#main-container.order4 .item-1 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+#main-container.order4 .item-2 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+#main-container.order4 .item-3 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+#main-container.order4 .item-4 {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+#main-container.order4 .item-5 {
+  grid-column-start: 4;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 5;
 }
