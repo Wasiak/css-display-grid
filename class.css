@@ -66,6 +66,10 @@
 .item-3 {
   background-color: green;
   grid-area: c;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 10px auto;
+  grid-gap: 2px;
 }
 .item-4 {
   background-color: blue;
@@ -106,3 +110,17 @@
   grid-row-start: 1;
   grid-row-end: 5;
 }
+
+.item-31 {
+  background-color: #000;
+}
+.item-32 {
+  background-color: #000;
+}
+.item-33 {
+  background-color: #000;
+}
+.item-34 {
+  background-color: #000;
+}
+
