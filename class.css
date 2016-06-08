@@ -33,16 +33,16 @@
   grid-template-columns: 50px 1fr 50% 1fr;
   grid-template-rows: 50px 60% 20px auto;
   grid-gap: 5px;
-  grid-template-areas: "a a a a"
-                       "b c c e"
-                       "b c c e"
-                       "d d d d"
-}
-#main-container.order1 {
   grid-template-areas: "b a a e"
                        "b c c e"
                        "b d d e"
                        "b d d e"
+}
+#main-container.order1 {
+  grid-template-areas: "a a a a"
+                       "b c c e"
+                       "b c c e"
+                       "d d d d"
 }
 #main-container.order2 {
   grid-template-areas: "e a a ."
@@ -53,6 +53,16 @@
 
 .item {
   transition: width 1s, height 1s;
+}
+.item.hidden {
+  opacity: 0;
+  /*position: absolute;*/
+}
+.temp-item {
+  position: absolute;
+  /*background-color: #000;*/
+  /*opacity: 0.5;*/
+  transition: 1s;
 }
 
 .item-1 {
