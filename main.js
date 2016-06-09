@@ -31,45 +31,49 @@ var getItemPosition = function(element) {
 
 button1.addEventListener('click', function() {
   items.forEach(setItemPositionAbs);
-    container.classList.remove('order2');
-    container.classList.remove('order3');
-    container.classList.remove('order4');
+  container.classList.remove('order2');
+  container.classList.remove('order3');
+  container.classList.remove('order4');
 
-    container.classList.add('order1');
-    items.forEach(setNewItemPositionAbs);
+  container.classList.add('order1');
+  items.forEach(setNewItemPositionAbs);
 });
 button2.addEventListener('click', function() {
   items.forEach(setItemPositionAbs);
-    container.classList.remove('order1');
-    container.classList.remove('order3');
-    container.classList.remove('order4');
+  container.classList.remove('order1');
+  container.classList.remove('order3');
+  container.classList.remove('order4');
 
-    container.classList.add('order2');
-    items.forEach(setNewItemPositionAbs);
+  container.classList.add('order2');
+  items.forEach(setNewItemPositionAbs);
 });
 button3.addEventListener('click', function() {
   items.forEach(setItemPositionAbs);
-    container.classList.remove('order1');
-    container.classList.remove('order2');
-    container.classList.remove('order4');
+  container.classList.remove('order1');
+  container.classList.remove('order2');
+  container.classList.remove('order4');
 
-    container.classList.add('order3');
-    items.forEach(setNewItemPositionAbs);
+  container.classList.add('order3');
+  items.forEach(setNewItemPositionAbs);
 });
 button4.addEventListener('click', function() {
+  // block event (click)
   items.forEach(setItemPositionAbs);
-    container.classList.remove('order1');
-    container.classList.remove('order2');
-    container.classList.remove('order3');
-
-    container.classList.add('order4');
-    items.forEach(setNewItemPositionAbs);
+  // function to remove all order classes
+  container.classList.remove('order1');
+  container.classList.remove('order2');
+  container.classList.remove('order3');
+  // add order with same number as button
+  container.classList.add('order4');
+  items.forEach(setNewItemPositionAbs);
+  // unblock event (click)
 });
 
 var setItemPositionAbs = function(element) {
   var item = getItemPosition(element);
   var bgColor = window.getComputedStyle(element, null).getPropertyValue("background-color");
   element.classList.add('hidden');
+  // cloneNode
   var tempItem = document.createElement('div');
   container.appendChild(tempItem);
   tempItem.classList.add('temp-item');
