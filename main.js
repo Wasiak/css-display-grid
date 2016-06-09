@@ -29,11 +29,22 @@ var getItemPosition = function(element) {
   return (data);
 }
 
+var removeClasses = function() {
+  var classes = [
+      'order1, ', 'order2, ', 'order3, ', 'order4'
+    ];
+  var classesToRemove = classes.join();  
+      // $('.edit-room-panel').removeClass(classes.join(' '));
+  container.classList.remove(classesToRemove);
+  // console.log('classes', classesToRemove)
+}
+
 button1.addEventListener('click', function() {
   items.forEach(setItemPositionAbs);
   container.classList.remove('order2');
   container.classList.remove('order3');
   container.classList.remove('order4');
+  // removeClasses();
 
   container.classList.add('order1');
   items.forEach(setNewItemPositionAbs);
