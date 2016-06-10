@@ -59,6 +59,7 @@ var setItemPositionAbs = function(element) {
   var bgColor = window.getComputedStyle(element, null).getPropertyValue("background-color");
   element.classList.add('hidden');
   // cloneNode
+  // var tempItem = element.cloneNode(true);
   var tempItem = document.createElement('div');
   container.appendChild(tempItem);
   tempItem.classList.add('temp-item');
