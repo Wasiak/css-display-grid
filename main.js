@@ -30,50 +30,43 @@ var getItemPosition = function(element) {
 }
 
 var removeClasses = function() {
-  var classes = [
-      'order1, ', 'order2, ', 'order3, ', 'order4'
-    ];
-  var classesToRemove = classes.join();  
-      // $('.edit-room-panel').removeClass(classes.join(' '));
-  container.classList.remove(classesToRemove);
-  // console.log('classes', classesToRemove)
+  // var classes = [
+  //     'order1, ', 'order2, ', 'order3, ', 'order4'
+  //   ];
+  // $('.edit-room-panel').removeClass(classes.join(' '));
+  container.classList.remove('order1');
+  container.classList.remove('order2');
+  container.classList.remove('order3');
+  container.classList.remove('order4');
 }
 
 button1.addEventListener('click', function() {
   items.forEach(setItemPositionAbs);
-  container.classList.remove('order2');
-  container.classList.remove('order3');
-  container.classList.remove('order4');
-  // removeClasses();
+  removeClasses();
 
   container.classList.add('order1');
   items.forEach(setNewItemPositionAbs);
 });
 button2.addEventListener('click', function() {
   items.forEach(setItemPositionAbs);
-  container.classList.remove('order1');
-  container.classList.remove('order3');
-  container.classList.remove('order4');
+  removeClasses();
 
   container.classList.add('order2');
   items.forEach(setNewItemPositionAbs);
 });
 button3.addEventListener('click', function() {
   items.forEach(setItemPositionAbs);
-  container.classList.remove('order1');
-  container.classList.remove('order2');
-  container.classList.remove('order4');
+  removeClasses();
 
   container.classList.add('order3');
   items.forEach(setNewItemPositionAbs);
 });
 button4.addEventListener('click', function() {
-  // block event (click)
+  // if has order same number sa clicked return
+  // block event (click) for all buttons
   items.forEach(setItemPositionAbs);
-  // function to remove all order classes
-  container.classList.remove('order1');
-  container.classList.remove('order2');
-  container.classList.remove('order3');
+
+  removeClasses();
   // add order with same number as button
   container.classList.add('order4');
   items.forEach(setNewItemPositionAbs);
