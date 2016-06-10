@@ -20,12 +20,12 @@ var position = function(element) {
   return element.getBoundingClientRect();
 }
 var getItemPosition = function(element) {
-  data = [
-    position(element).left,
-    position(element).top,
-    position(element).width,
-    position(element).height
-  ];
+  data = {
+    left: position(element).left,
+    top: position(element).top,
+    width: position(element).width,
+    height: position(element).height
+  }
   return (data);
 }
 
@@ -83,18 +83,18 @@ var setItemPositionAbs = function(element) {
   tempItem.classList.add('temp-item');
   tempItem.id = element.id + '-temp';
   tempItem.style.backgroundColor = bgColor;
-  tempItem.style.left = item[0] + 'px';
-  tempItem.style.top = item[1] + 'px';
-  tempItem.style.width = item[2] + 'px';
-  tempItem.style.height = item[3] + 'px';
+  tempItem.style.left = item.left + 'px';
+  tempItem.style.top = item.top + 'px';
+  tempItem.style.width = item.width + 'px';
+  tempItem.style.height = item.height + 'px';
 }
 var setNewItemPositionAbs = function(element) {
   var item = getItemPosition(element);
   var tempItem = $('#' + element.id + '-temp')[0];
-  tempItem.style.left = item[0] + 'px';
-  tempItem.style.top = item[1] + 'px';
-  tempItem.style.width = item[2] + 'px';
-  tempItem.style.height = item[3] + 'px';
+  tempItem.style.left = item.left + 'px';
+  tempItem.style.top = item.top + 'px';
+  tempItem.style.width = item.width + 'px';
+  tempItem.style.height = item.height + 'px';
   tempItem.addEventListener('transitionend', function() {
     element.classList.remove('hidden');
     container.removeChild(tempItem);
