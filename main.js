@@ -2,6 +2,8 @@ var $ = function(selector) {
    return document.querySelectorAll(selector);
 }
 var container = $('#main-container')[0];
+var buttonPanel = $('#panel')[0];
+
 var button1 = $('#button-1')[0];
 var button2 = $('#button-2')[0];
 var button3 = $('#button-3')[0];
@@ -15,6 +17,7 @@ var item5 = $('.item-5')[0];
 
 var allItems = $('.item');
 var items = Array.prototype.slice.call(allItems);
+var buttons = Array.prototype.slice.call($('.button'));
 
 var position = function(element) {
   return element.getBoundingClientRect();
@@ -30,48 +33,26 @@ var getItemPosition = function(element) {
 }
 
 var removeClasses = function() {
-  // var classes = [
-  //     'order1, ', 'order2, ', 'order3, ', 'order4'
-  //   ];
-  // $('.edit-room-panel').removeClass(classes.join(' '));
-  container.classList.remove('order1');
-  container.classList.remove('order2');
-  container.classList.remove('order3');
-  container.classList.remove('order4');
+  container.classList.remove('order1', 'order2', 'order3', 'order4');
 }
 
-button1.addEventListener('click', function() {
+var setNewOrder = function(number) {
+  if (container.classList.contains('order' + number)) return;
+  buttonPanel.classList.add('disabled');
   items.forEach(setItemPositionAbs);
   removeClasses();
-
-  container.classList.add('order1');
+  container.classList.add('order' + number);
   items.forEach(setNewItemPositionAbs);
-});
-button2.addEventListener('click', function() {
-  items.forEach(setItemPositionAbs);
-  removeClasses();
+}
 
-  container.classList.add('order2');
-  items.forEach(setNewItemPositionAbs);
-});
-button3.addEventListener('click', function() {
-  items.forEach(setItemPositionAbs);
-  removeClasses();
-
-  container.classList.add('order3');
-  items.forEach(setNewItemPositionAbs);
-});
-button4.addEventListener('click', function() {
-  // if has order same number sa clicked return
-  // block event (click) for all buttons
-  items.forEach(setItemPositionAbs);
-
-  removeClasses();
-  // add order with same number as button
-  container.classList.add('order4');
-  items.forEach(setNewItemPositionAbs);
-  // unblock event (click)
-});
+var addButtonsListeners = function() {
+  buttons.forEach(function(button, index) {
+    button.addEventListener('click', function(evt) {
+    var orderNumber = evt.target.id.split('-')[1];
+      setNewOrder(orderNumber);
+    });
+  });
+}();
 
 var setItemPositionAbs = function(element) {
   var item = getItemPosition(element);
@@ -98,5 +79,6 @@ var setNewItemPositionAbs = function(element) {
   tempItem.addEventListener('transitionend', function() {
     element.classList.remove('hidden');
     container.removeChild(tempItem);
+    buttonPanel.classList.remove('disabled');
   });
 }

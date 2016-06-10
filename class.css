@@ -29,6 +29,11 @@
   line-height: 40px;
   color: #fff;
 }
+
+#panel.disabled .button {
+  pointer-events: none;
+}
+
 .container {
   grid-template-columns: 50px 1fr 50% 1fr;
   grid-template-rows: 50px 60% 20px auto;
